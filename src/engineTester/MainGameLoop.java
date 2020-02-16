@@ -16,6 +16,7 @@ import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.RawModel;
 import renderEngine.Renderer;
+import shaders.StaticShader;
 
 public class MainGameLoop {
 
@@ -28,23 +29,30 @@ public class MainGameLoop {
 
     Loader loader = new Loader();
     Renderer renderer = new Renderer();
+    StaticShader shader = new StaticShader();
+
+    //vertices
     float[] vertices = {
-        //Left bottom triangle
         -0.5f, 0.5f, 0f,  //v0
         -0.5f, -0.5f, 0f, //v1
-        0.5f, 0.5f, 0f,   //v3
-        //Right top triangle
-        0.5f, 0.5f, 0f,   //v3
-        -0.5f, -0.5f, 0f, //v1
         0.5f, -0.5f, 0f,  //v2
+        0.5f, 0.5f, 0f,   //v3
+    };
+    //index buffer
+    int[] indices = {
+        0, 1, 3, //left triangle v0,v1,v3
+        3, 1, 2  //right triangle v3,v1,v2
     };
 
-    RawModel model = loader.loadToVAO(vertices);
+    //RawModel model = loader.loadToVAO(vertices);
+    RawModel model = loader.loadToVAO(vertices, indices);
 
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowID)) {
       renderer.prepare();
+      shader.start();
       renderer.render(model);
+      shader.stop();
       // Rest of your game loop...
       // glClear(GL_COLOR_BUFFER_BIT); // clear the framebuffer
       glfwSwapBuffers(windowID); // swap the color buffers // updates the contents of display
@@ -66,7 +74,7 @@ public class MainGameLoop {
         previousTime = currentTime;
       }
     }
-
+    shader.cleanUp();
     loader.cleanUp();//delete al the VAOs and VBOs
     DisplayManager.closeDisplay();
   }
