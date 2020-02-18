@@ -10,13 +10,15 @@ import static org.lwjgl.opengl.GL11.glClear;
 import static renderEngine.DisplayManager.GAME_NAME;
 import static renderEngine.DisplayManager.windowID;
 
+import models.RawModel;
+import models.TexturedModel;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
-import renderEngine.RawModel;
 import renderEngine.Renderer;
 import shaders.StaticShader;
+import textures.ModelTexture;
 
 public class MainGameLoop {
 
@@ -44,14 +46,23 @@ public class MainGameLoop {
         3, 1, 2  //right triangle v3,v1,v2
     };
 
+    float[] textureCoords = {
+        0, 0, //v0
+        0, 1, //v1
+        1, 1, //v2
+        1, 0  //v3
+    };
+
     //RawModel model = loader.loadToVAO(vertices);
-    RawModel model = loader.loadToVAO(vertices, indices);
+    RawModel model = loader.loadToVAO(vertices, textureCoords, indices);
+    ModelTexture texture = new ModelTexture(loader.loadTexture("luna"));
+    TexturedModel texturedModel = new TexturedModel(model, texture);
 
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowID)) {
       renderer.prepare();
       shader.start();
-      renderer.render(model);
+      renderer.render(texturedModel);
       shader.stop();
       // Rest of your game loop...
       // glClear(GL_COLOR_BUFFER_BIT); // clear the framebuffer
