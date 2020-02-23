@@ -20,9 +20,8 @@ import org.lwjgl.opengl.GL;
 import org.lwjglx.util.vector.Vector3f;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
+import renderEngine.MaterRenderer;
 import renderEngine.OBJLoader;
-import renderEngine.Renderer;
-import shaders.StaticShader;
 import textures.ModelTexture;
 
 public class MainGameLoop {
@@ -35,8 +34,6 @@ public class MainGameLoop {
     glClear(GL_COLOR_BUFFER_BIT); //Set the clear color //glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
 
     Loader loader = new Loader();
-    StaticShader shader = new StaticShader();
-    Renderer renderer = new Renderer(shader);
 
     RawModel model = OBJLoader.loadObjModel("stall", loader);
     ModelTexture texture = new ModelTexture(loader.loadTexture("stallTexture"));
@@ -49,18 +46,14 @@ public class MainGameLoop {
     Light light = new Light(new Vector3f(0, 0, -20), new Vector3f(1, 1, 1));
     Camera camera = new Camera();
 
+    MaterRenderer renderer = new MaterRenderer();
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowID)) {
       entity.increaseRotation(0, 1, 0);//rotate around x and y axes
       camera.move();
-      renderer.prepare();
-      shader.start();
-      shader.loadLight(light);
-      shader.loadViewMatrix(camera);
-      renderer.render(entity, shader);
-      shader.stop();
-      // Rest of your game loop...
-      // glClear(GL_COLOR_BUFFER_BIT); // clear the framebuffer
+
+      renderer.processEntity(entity);
+      renderer.render(light, camera);
       glfwSwapBuffers(windowID); // swap the color buffers // updates the contents of display
       //game logic render
       DisplayManager.updateDisplay();
@@ -80,7 +73,8 @@ public class MainGameLoop {
         previousTime = currentTime;
       }
     }
-    shader.cleanUp();
+
+    renderer.cleanUp();
     loader.cleanUp();//delete al the VAOs and VBOs
     DisplayManager.closeDisplay();
   }
