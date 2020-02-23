@@ -15,13 +15,14 @@ import entities.Entity;
 import entities.Light;
 import models.RawModel;
 import models.TexturedModel;
+import objConverter.ModelData;
+import objConverter.OBJFileLoader;
 import org.lwjgl.Version;
 import org.lwjgl.opengl.GL;
 import org.lwjglx.util.vector.Vector3f;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
 import renderEngine.MasterRenderer;
-import renderEngine.OBJLoader;
 import terrains.Terrain;
 import textures.ModelTexture;
 
@@ -38,7 +39,10 @@ public class MainGameLoop {
     Loader loader = new Loader();
 
     //------------------------------------------
-    RawModel model = OBJLoader.loadObjModel("stall", loader);
+    ModelData data = OBJFileLoader.loadOBJ("stall");
+    RawModel model = loader
+        .loadToVAO(data.getVertices(), data.getTextureCoords(), data.getNormals(),
+            data.getIndices());
 
     TexturedModel texturedModel = new TexturedModel(model,
         new ModelTexture(loader.loadTexture("stallTexture")));
@@ -47,9 +51,12 @@ public class MainGameLoop {
     textureMod.setReflectivity(0.2f);
     Entity entity = new Entity(texturedModel, new Vector3f(0, 0, -25), 0, 0, 0, 1);
     Light light = new Light(new Vector3f(3000, 2000, 2000), new Vector3f(1, 1, 1));
-    //--grass-----------------------------------
-    RawModel gmodel = OBJLoader.loadObjModel("grassModel", loader);
 
+    //--grass-----------------------------------
+    ModelData grassData = OBJFileLoader.loadOBJ("grassModel");
+    RawModel gmodel = loader
+        .loadToVAO(grassData.getVertices(), grassData.getTextureCoords(), grassData.getNormals(),
+            grassData.getIndices());
     TexturedModel grass = new TexturedModel(gmodel,
         new ModelTexture(loader.loadTexture("grassTexture")));
     ModelTexture grassTexture = grass.getTexture();
@@ -59,7 +66,7 @@ public class MainGameLoop {
     grass.getTexture().setUseFakeLighting(true);
     Entity gentity = new Entity(grass, new Vector3f(0, 0, -10), 0, 0, 0, 1);
 
-    //------------------------------------------
+    //--terrain---------------------------------
     Terrain terrain = new Terrain(0, -1, loader, new ModelTexture(loader.loadTexture("grass")));
     Terrain terrain2 = new Terrain(-1, -1, loader, new ModelTexture(loader.loadTexture("grass")));
 
