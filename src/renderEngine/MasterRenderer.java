@@ -14,17 +14,17 @@ import shaders.StaticShader;
 public class MaterRenderer {
 
   private StaticShader shader = new StaticShader();
-  private Renderer renderer = new Renderer(shader);
+  private EntityRenderer entityRenderer = new EntityRenderer(shader);
 
   private Map<TexturedModel, List<Entity>> entities = new HashMap<TexturedModel, List<Entity>>();
 
   //once every frame
   public void render(Light sun, Camera camera) {
-    renderer.prepare();
+    entityRenderer.prepare();
     shader.start();
     shader.loadLight(sun);
     shader.loadViewMatrix(camera);
-    renderer.render(entities);
+    entityRenderer.render(entities);
     shader.stop();
     entities.clear();
   }
