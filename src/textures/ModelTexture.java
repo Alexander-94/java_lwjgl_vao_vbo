@@ -10,8 +10,27 @@ public class ModelTexture {
   // if 0 - no light would be reflected at all and it would be no specular lighting
   private float reflectivity = 0;
 
+  private boolean hasTransparency = false;
+  private boolean useFakeLighting = false;
+
+  public boolean isUseFakeLighting() {
+    return useFakeLighting;
+  }
+
+  public void setUseFakeLighting(boolean useFakeLighting) {
+    this.useFakeLighting = useFakeLighting;
+  }
+
   public ModelTexture(int id) {
     this.textureID = id;
+  }
+
+  public boolean isHasTransparency() {
+    return hasTransparency;
+  }
+
+  public void setHasTransparency(boolean hasTransparency) {
+    this.hasTransparency = hasTransparency;
   }
 
   public int getID() {

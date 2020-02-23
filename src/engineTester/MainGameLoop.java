@@ -37,18 +37,29 @@ public class MainGameLoop {
     glClear(GL_COLOR_BUFFER_BIT); //Set the clear color //glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
     Loader loader = new Loader();
 
+    //------------------------------------------
     RawModel model = OBJLoader.loadObjModel("stall", loader);
 
     TexturedModel texturedModel = new TexturedModel(model,
         new ModelTexture(loader.loadTexture("stallTexture")));
-
     ModelTexture textureMod = texturedModel.getTexture();
     textureMod.setShineDamper(10);
     textureMod.setReflectivity(0.2f);
-
     Entity entity = new Entity(texturedModel, new Vector3f(0, 0, -25), 0, 0, 0, 1);
     Light light = new Light(new Vector3f(3000, 2000, 2000), new Vector3f(1, 1, 1));
+    //--grass-----------------------------------
+    RawModel gmodel = OBJLoader.loadObjModel("grassModel", loader);
 
+    TexturedModel grass = new TexturedModel(gmodel,
+        new ModelTexture(loader.loadTexture("grassTexture")));
+    ModelTexture grassTexture = grass.getTexture();
+    grassTexture.setShineDamper(10);
+    grassTexture.setReflectivity(0.2f);
+    grassTexture.setHasTransparency(true);
+    grass.getTexture().setUseFakeLighting(true);
+    Entity gentity = new Entity(grass, new Vector3f(0, 0, -10), 0, 0, 0, 1);
+
+    //------------------------------------------
     Terrain terrain = new Terrain(0, -1, loader, new ModelTexture(loader.loadTexture("grass")));
     Terrain terrain2 = new Terrain(-1, -1, loader, new ModelTexture(loader.loadTexture("grass")));
 
@@ -63,6 +74,7 @@ public class MainGameLoop {
       renderer.processTerrain(terrain);
       renderer.processTerrain(terrain2);
       renderer.processEntity(entity);
+      renderer.processEntity(gentity);
 
       renderer.render(light, camera);
       glfwSwapBuffers(windowID); // swap the color buffers // updates the contents of display

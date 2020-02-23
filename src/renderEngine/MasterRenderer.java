@@ -46,6 +46,16 @@ public class MasterRenderer {
     terrainRenderer = new TerrainRenderer(terrainShader, projectionMatrix);
   }
 
+  public static void enableCulling() {
+    //2 lines above - not to render inside of the 3d model
+    GL11.glEnable(GL11.GL_CULL_FACE);
+    GL11.glCullFace(GL11.GL_BACK);
+  }
+
+  public static void disableCulling() {
+    GL11.glDisable(GL11.GL_CULL_FACE);
+  }
+
   //once every frame
   public void render(Light sun, Camera camera) {
     prepare();
