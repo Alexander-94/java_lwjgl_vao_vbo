@@ -12,6 +12,7 @@ import static renderEngine.DisplayManager.windowID;
 
 import entities.Camera;
 import entities.Entity;
+import entities.Light;
 import models.RawModel;
 import models.TexturedModel;
 import org.lwjgl.Version;
@@ -42,7 +43,7 @@ public class MainGameLoop {
     TexturedModel texturedModel = new TexturedModel(model, texture);
 
     Entity entity = new Entity(texturedModel, new Vector3f(0, 0, -50), 0, 0, 0, 1);
-
+    Light light = new Light(new Vector3f(0, 0, -20), new Vector3f(1, 1, 1));
     Camera camera = new Camera();
 
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
@@ -51,6 +52,7 @@ public class MainGameLoop {
       camera.move();
       renderer.prepare();
       shader.start();
+      shader.loadLight(light);
       shader.loadViewMatrix(camera);
       renderer.render(entity, shader);
       shader.stop();

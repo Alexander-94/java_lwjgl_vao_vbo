@@ -22,12 +22,12 @@ public class Loader {
   private List<Integer> vbos = new ArrayList<Integer>();
   private List<Integer> textures = new ArrayList<Integer>();
 
-  public RawModel loadToVAO(float[] positions) {//v1.0
+  /*public RawModel loadToVAO(float[] positions) {//v1.0
     int vaoID = createVAO();
     storeDateInAttributeList(0, 3, positions);
     unbindVAO();
     return new RawModel(vaoID, positions.length / 3); //each vertex has x,y,z
-  }
+  }*/
 
   //texturing a quad - method to loadup a texture into OpenGL
   public int loadTexture(String fileName) {
@@ -44,12 +44,13 @@ public class Loader {
     return textureID;
   }
 
-  public RawModel loadToVAO(float[] positions, float[] textureCoord,
+  public RawModel loadToVAO(float[] positions, float[] textureCoord, float[] normals,
       int[] indices) {//v2.0 index buffer
     int vaoID = createVAO();
     bindIndicesBuffer(indices);
     storeDateInAttributeList(0, 3, positions);
     storeDateInAttributeList(1, 2, textureCoord);
+    storeDateInAttributeList(2, 3, normals);
     unbindVAO();
     return new RawModel(vaoID, indices.length); //6 for quad
   }
