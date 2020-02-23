@@ -3,20 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="bc32269a-0203-47fe-956e-5c2f68c25bc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/EntityRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/EntityRenderer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/entities/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/entities/Camera.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/MasterRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/MasterRenderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/StaticShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/StaticShader.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/TerrainShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/TerrainShader.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/fragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/fragmentShader.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainFragmentShader.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainVertexShader.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/vertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/vertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/textures/ModelTexture.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/textures/ModelTexture.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/EntityRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/EntityRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/MasterRenderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/StaticShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/StaticShader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/TerrainShader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/fragmentShader.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/shaders/vertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/vertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/textures/ModelTexture.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/textures/ModelTexture.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,26 +123,26 @@
     </state>
     <state x="698" y="265" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581202313108" />
     <state x="2292" y="316" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1581288616966" />
-    <state width="964" height="140" key="GridCell.Tab.0.bottom" timestamp="1582483451002">
+    <state width="964" height="148" key="GridCell.Tab.0.bottom" timestamp="1582486937099">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="964" height="140" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582483451002" />
-    <state width="964" height="140" key="GridCell.Tab.0.center" timestamp="1582483451002">
+    <state width="964" height="148" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582486937099" />
+    <state width="964" height="148" key="GridCell.Tab.0.center" timestamp="1582486937099">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="964" height="140" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582483451002" />
-    <state width="964" height="140" key="GridCell.Tab.0.left" timestamp="1582483451002">
+    <state width="964" height="148" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582486937099" />
+    <state width="964" height="148" key="GridCell.Tab.0.left" timestamp="1582486937099">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="964" height="140" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582483451002" />
-    <state width="964" height="140" key="GridCell.Tab.0.right" timestamp="1582483451002">
+    <state width="964" height="148" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582486937099" />
+    <state width="964" height="148" key="GridCell.Tab.0.right" timestamp="1582486937099">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="964" height="140" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582483451002" />
+    <state width="964" height="148" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582486937099" />
     <state width="964" height="347" key="GridCell.Tab.1.bottom" timestamp="1582482938118">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
