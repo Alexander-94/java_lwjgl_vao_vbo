@@ -12,6 +12,7 @@ import org.lwjgl.opengl.GL20;
 import org.lwjgl.opengl.GL30;
 import org.lwjglx.util.vector.Matrix4f;
 import shaders.StaticShader;
+import textures.ModelTexture;
 import toolbox.Maths;
 
 public class Renderer {
@@ -51,6 +52,8 @@ public class Renderer {
         .createTransformationMatrix(entity.getPosition(), entity.getRotX(), entity.getRotY(),
             entity.getRotZ(), entity.getScale());
     shader.loadTransformationMatrix(transformationMatrix);
+    ModelTexture texture = texturedModel.getTexture();
+    shader.loadShineVariables(texture.getShineDamper(), texture.getReflectivity());
     GL13.glActiveTexture(GL13.GL_TEXTURE0);
     GL11.glBindTexture(GL11.GL_PROXY_TEXTURE_2D, texturedModel.getTexture().getID());
     //GL11.glDrawArrays(GL11.GL_TRIANGLES, 0, model.getVertexCount());
