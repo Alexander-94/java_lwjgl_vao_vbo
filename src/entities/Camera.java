@@ -13,7 +13,7 @@ import renderEngine.DisplayManager;
 public class Camera {
 
   private GLFWKeyCallback keyCallback;
-  private Vector3f position = new Vector3f(0, 0, 0);
+  private Vector3f position = new Vector3f(0, 1, 0);
   //rotation
   private float pitch; //how high or low the camera is aimed
   private float yaw;   //how much camera is left or right

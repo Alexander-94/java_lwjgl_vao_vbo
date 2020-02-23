@@ -1,8 +1,6 @@
 package renderEngine;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
@@ -22,28 +20,6 @@ public class Loader {
   private List<Integer> vbos = new ArrayList<Integer>();
   private List<Integer> textures = new ArrayList<Integer>();
 
-  /*public RawModel loadToVAO(float[] positions) {//v1.0
-    int vaoID = createVAO();
-    storeDateInAttributeList(0, 3, positions);
-    unbindVAO();
-    return new RawModel(vaoID, positions.length / 3); //each vertex has x,y,z
-  }*/
-
-  //texturing a quad - method to loadup a texture into OpenGL
-  public int loadTexture(String fileName) {
-    Texture texture = null;
-    try {
-      texture = TextureLoader.getTexture("PNG", new FileInputStream("res/" + fileName + ".png"));
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    int textureID = texture.getTextureID();
-    textures.add(textureID);
-    return textureID;
-  }
-
   public RawModel loadToVAO(float[] positions, float[] textureCoord, float[] normals,
       int[] indices) {//v2.0 index buffer
     int vaoID = createVAO();
@@ -53,6 +29,21 @@ public class Loader {
     storeDateInAttributeList(2, 3, normals);
     unbindVAO();
     return new RawModel(vaoID, indices.length); //6 for quad
+  }
+
+  //texturing a quad - method to loadup a texture into OpenGL
+  public int loadTexture(String fileName) {
+    Texture texture = null;
+    try {
+      texture = TextureLoader.getTexture("PNG",
+          new FileInputStream("res/" + fileName + ".png"));
+    } catch (Exception e) {
+      e.printStackTrace();
+      System.err.println("Tried to load texture " + fileName + ".png , didn't work");
+      System.exit(-1);
+    }
+    textures.add(texture.getTextureID());
+    return texture.getTextureID();
   }
 
   public void cleanUp() {

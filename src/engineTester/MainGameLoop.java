@@ -20,42 +20,52 @@ import org.lwjgl.opengl.GL;
 import org.lwjglx.util.vector.Vector3f;
 import renderEngine.DisplayManager;
 import renderEngine.Loader;
-import renderEngine.MaterRenderer;
+import renderEngine.MasterRenderer;
 import renderEngine.OBJLoader;
+import terrains.Terrain;
 import textures.ModelTexture;
 
 public class MainGameLoop {
 
   public static void main(String[] args) {
+
     int frameCount = 0;
     double previousTime = glfwGetTime();
+
     DisplayManager.createDisplay();
     GL.createCapabilities();
     glClear(GL_COLOR_BUFFER_BIT); //Set the clear color //glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
-
     Loader loader = new Loader();
 
     RawModel model = OBJLoader.loadObjModel("stall", loader);
-    ModelTexture texture = new ModelTexture(loader.loadTexture("stallTexture"));
-    TexturedModel texturedModel = new TexturedModel(model, texture);
+
+    TexturedModel texturedModel = new TexturedModel(model,
+        new ModelTexture(loader.loadTexture("stallTexture")));
+
     ModelTexture textureMod = texturedModel.getTexture();
     textureMod.setShineDamper(10);
     textureMod.setReflectivity(0.2f);
 
-    Entity entity = new Entity(texturedModel, new Vector3f(0, 0, -50), 0, 0, 0, 1);
-    Light light = new Light(new Vector3f(0, 0, -20), new Vector3f(1, 1, 1));
-    Camera camera = new Camera();
+    Entity entity = new Entity(texturedModel, new Vector3f(0, 0, -25), 0, 0, 0, 1);
+    Light light = new Light(new Vector3f(3000, 2000, 2000), new Vector3f(1, 1, 1));
 
-    MaterRenderer renderer = new MaterRenderer();
+    Terrain terrain = new Terrain(0, -1, loader, new ModelTexture(loader.loadTexture("grass")));
+    Terrain terrain2 = new Terrain(-1, -1, loader, new ModelTexture(loader.loadTexture("grass")));
+
+    Camera camera = new Camera();
+    MasterRenderer renderer = new MasterRenderer();
+
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowID)) {
       entity.increaseRotation(0, 1, 0);//rotate around x and y axes
       camera.move();
 
+      renderer.processTerrain(terrain);
+      renderer.processTerrain(terrain2);
       renderer.processEntity(entity);
+
       renderer.render(light, camera);
       glfwSwapBuffers(windowID); // swap the color buffers // updates the contents of display
-      //game logic render
       DisplayManager.updateDisplay();
       // mouse, keyboard input and window
       glfwPollEvents();
