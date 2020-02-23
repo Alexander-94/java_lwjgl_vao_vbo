@@ -103,4 +103,7 @@ public class DisplayManager {
     glfwSetErrorCallback(null).free();
   }
 
+  public static long getWindowID() {
+    return windowID;
+  }
 }

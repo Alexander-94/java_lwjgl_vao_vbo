@@ -78,7 +78,7 @@ public abstract class ShaderProgram {
 
   protected void loadMatrix(int location, Matrix4f matrix) {
     matrix.store(matrixBuffer);
-    matrixBuffer.flip();
+    matrixBuffer.flip();//in lwjgl2 only
     GL20.glUniformMatrix4fv(location, false, matrixBuffer);
   }
 

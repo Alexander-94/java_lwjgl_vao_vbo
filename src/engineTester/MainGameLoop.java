@@ -10,6 +10,7 @@ import static org.lwjgl.opengl.GL11.glClear;
 import static renderEngine.DisplayManager.GAME_NAME;
 import static renderEngine.DisplayManager.windowID;
 
+import entities.Camera;
 import entities.Entity;
 import models.RawModel;
 import models.TexturedModel;
@@ -32,8 +33,8 @@ public class MainGameLoop {
     glClear(GL_COLOR_BUFFER_BIT); //Set the clear color //glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
 
     Loader loader = new Loader();
-    Renderer renderer = new Renderer();
     StaticShader shader = new StaticShader();
+    Renderer renderer = new Renderer(shader);
 
     //vertices
     float[] vertices = {
@@ -60,14 +61,17 @@ public class MainGameLoop {
     ModelTexture texture = new ModelTexture(loader.loadTexture("luna"));
     TexturedModel texturedModel = new TexturedModel(model, texture);
 
-    Entity entity = new Entity(texturedModel, new Vector3f(-1, 0, 0), 0, 0, 0, 1);
+    Entity entity = new Entity(texturedModel, new Vector3f(0, 0, -1), 0, 0, 0, 1);
+
+    Camera camera = new Camera();
 
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowID)) {
-      entity.increasePosition(0.002f, 0, 0);
-      entity.increaseRotation(0, 1, 0);
+      entity.increasePosition(0, 0, -0.1f);
+      camera.move();
       renderer.prepare();
       shader.start();
+      shader.loadViewMatrix(camera);
       renderer.render(entity, shader);
       shader.stop();
       // Rest of your game loop...
