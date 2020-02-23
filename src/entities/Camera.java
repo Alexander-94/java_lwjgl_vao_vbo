@@ -2,6 +2,7 @@ package entities;
 
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_A;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_D;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_S;
 import static org.lwjgl.glfw.GLFW.GLFW_KEY_W;
 import static org.lwjgl.glfw.GLFW.glfwGetKey;
 
@@ -30,6 +31,9 @@ public class Camera {
     }
     if (glfwGetKey(DisplayManager.getWindowID(), GLFW_KEY_A) == 1) {
       position.x -= 0.02f;
+    }
+    if (glfwGetKey(DisplayManager.getWindowID(), GLFW_KEY_S) == 1) {
+      position.z += 0.02f;
     }
   }
 

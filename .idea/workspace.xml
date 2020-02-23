@@ -6,12 +6,8 @@
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/Renderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/Renderer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/renderEngine/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/Renderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/StaticShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/StaticShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/vertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/vertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/toolbox/Maths.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/toolbox/Maths.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,26 +108,26 @@
     </state>
     <state x="698" y="265" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581202313108" />
     <state x="2292" y="316" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1581288616966" />
-    <state width="964" height="142" key="GridCell.Tab.0.bottom" timestamp="1582459287380">
+    <state width="964" height="142" key="GridCell.Tab.0.bottom" timestamp="1582459719516">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="964" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581889249880" />
-    <state width="964" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459287380" />
-    <state width="964" height="142" key="GridCell.Tab.0.center" timestamp="1582459287380">
+    <state width="964" height="142" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459719516" />
+    <state width="964" height="142" key="GridCell.Tab.0.center" timestamp="1582459719516">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="964" height="142" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581889249879" />
-    <state width="964" height="142" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459287380" />
-    <state width="964" height="142" key="GridCell.Tab.0.left" timestamp="1582459287380">
+    <state width="964" height="142" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459719516" />
+    <state width="964" height="142" key="GridCell.Tab.0.left" timestamp="1582459719516">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="964" height="142" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581889249879" />
-    <state width="964" height="142" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459287380" />
-    <state width="964" height="142" key="GridCell.Tab.0.right" timestamp="1582459287380">
+    <state width="964" height="142" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459719516" />
+    <state width="964" height="142" key="GridCell.Tab.0.right" timestamp="1582459719516">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="964" height="142" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581889249879" />
-    <state width="964" height="142" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459287380" />
+    <state width="964" height="142" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459719516" />
     <state width="964" height="343" key="GridCell.Tab.1.bottom" timestamp="1582406167795">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
@@ -157,6 +153,10 @@
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state x="2127" y="516" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582060132314" />
+    <state x="2236" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1582459709643">
+      <screen x="1920" y="0" width="1024" height="1240" />
+    </state>
+    <state x="2236" y="476" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582459709643" />
     <state x="375" y="144" key="new project wizard" timestamp="1581201085410">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

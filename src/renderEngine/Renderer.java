@@ -31,7 +31,11 @@ public class Renderer {
   }
 
   public void prepare() {
-    GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);//clear the color from previous frame
+    //test which triangles in front of which - to render in correct order
+    GL11.glEnable(GL11.GL_DEPTH_TEST);
+    GL11.glClear(
+        GL11.GL_COLOR_BUFFER_BIT
+            | GL11.GL_DEPTH_BUFFER_BIT);//clear the color and depth buffer from previous frame
     GL11.glClearColor(1, 0, 0, 1);
   }
 
