@@ -4,20 +4,10 @@
     <list default="true" id="bc32269a-0203-47fe-956e-5c2f68c25bc3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/engineTester/MainGameLoop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/TerrainRenderer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/renderEngine/TerrainRenderer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/TerrainShader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/TerrainShader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainFragmentShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/shaders/terrainVertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/stallTexture.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/stallTexture.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/terrains/Terrain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/terrains/Terrain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/stallTexture.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/stallTexture.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameEngine/entities/Camera.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameEngine/entities/Camera.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/engineTester/MainGameLoop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/TerrainRenderer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/ShaderProgram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/TerrainShader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/TerrainShader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainFragmentShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/terrainVertexShader.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/terrains/Terrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/terrains/Terrain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/renderEngine/DisplayManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,26 +112,26 @@
     </state>
     <state x="698" y="265" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1581202313108" />
     <state x="2292" y="316" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1581288616966" />
-    <state width="981" height="148" key="GridCell.Tab.0.bottom" timestamp="1582991558390">
+    <state width="981" height="148" key="GridCell.Tab.0.bottom" timestamp="1583013783024">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="981" height="148" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582991558390" />
-    <state width="981" height="148" key="GridCell.Tab.0.center" timestamp="1582991558390">
+    <state width="981" height="148" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1583013783024" />
+    <state width="981" height="148" key="GridCell.Tab.0.center" timestamp="1583013783023">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="981" height="148" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582991558390" />
-    <state width="981" height="148" key="GridCell.Tab.0.left" timestamp="1582991558390">
+    <state width="981" height="148" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1583013783023" />
+    <state width="981" height="148" key="GridCell.Tab.0.left" timestamp="1583013783023">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="981" height="148" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582991558390" />
-    <state width="981" height="148" key="GridCell.Tab.0.right" timestamp="1582991558390">
+    <state width="981" height="148" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1583013783023" />
+    <state width="981" height="148" key="GridCell.Tab.0.right" timestamp="1583013783023">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>
     <state width="1877" height="347" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@0.0.1920.1040" timestamp="1582482556046" />
-    <state width="981" height="148" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1582991558390" />
+    <state width="981" height="148" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1024.1240@1920.0.1024.1240" timestamp="1583013783023" />
     <state width="964" height="347" key="GridCell.Tab.1.bottom" timestamp="1582482938118">
       <screen x="1920" y="0" width="1024" height="1240" />
     </state>

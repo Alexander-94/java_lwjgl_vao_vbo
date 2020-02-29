@@ -13,7 +13,7 @@ import renderEngine.DisplayManager;
 public class Camera {
 
   private GLFWKeyCallback keyCallback;
-  private Vector3f position = new Vector3f(0, 1, 0);
+  private Vector3f position = new Vector3f(100, 35, 50);
   //rotation
   private float pitch; //how high or low the camera is aimed
   private float yaw;   //how much camera is left or right
@@ -23,7 +23,7 @@ public class Camera {
   }
 
   public void move() {
-    if (glfwGetKey(DisplayManager.getWindowID(), GLFW_KEY_W) == 1) {
+   /* if (glfwGetKey(DisplayManager.getWindowID(), GLFW_KEY_W) == 1) {
       position.z -= 1f;
     }
     if (glfwGetKey(DisplayManager.getWindowID(), GLFW_KEY_D) == 1) {
@@ -34,7 +34,7 @@ public class Camera {
     }
     if (glfwGetKey(DisplayManager.getWindowID(), GLFW_KEY_S) == 1) {
       position.z += 1f;
-    }
+    }*/
   }
 
   public Vector3f getPosition() {

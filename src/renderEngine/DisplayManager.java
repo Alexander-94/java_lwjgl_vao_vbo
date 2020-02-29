@@ -26,6 +26,7 @@ import static org.lwjgl.glfw.GLFW.glfwWindowHint;
 import static org.lwjgl.system.MemoryStack.stackPush;
 
 import java.nio.IntBuffer;
+import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.MemoryStack;
@@ -40,6 +41,9 @@ public class DisplayManager {
   private static final int WIDTH = 1280;
   private static final int HEIGHT = 720;
   private static final int FPS_CAP = 120;
+
+  private static double lastFrameTime;
+  private static double delta;
 
   public static void createDisplay() {
     // Setup an error callback. The default implementation
@@ -88,10 +92,17 @@ public class DisplayManager {
     glfwMakeContextCurrent(windowID);// Make the OpenGL context current
     glfwSwapInterval(1);// Enable v-sync 60fps - 1 // 0 = off, 1 = on
     glfwShowWindow(windowID);// Make the window visible
+    lastFrameTime = getCurrentTime();
   }
 
   public static void updateDisplay() {
+    double currentFrameTime = getCurrentTime();
+    delta = (currentFrameTime - lastFrameTime) / 1000f;//seconds
+    lastFrameTime = currentFrameTime;
+  }
 
+  public static double getFrameTimeSeconds() {
+    return delta;
   }
 
   public static void closeDisplay() {
@@ -106,4 +117,10 @@ public class DisplayManager {
   public static long getWindowID() {
     return windowID;
   }
+
+  //mseconds
+  private static double getCurrentTime() {
+    return GLFW.glfwGetTime() * 1000;// /Sys.getTimerResolution();
+  }
+
 }
