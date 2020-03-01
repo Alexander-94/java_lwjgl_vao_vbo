@@ -10,6 +10,7 @@ import static org.lwjgl.glfw.GLFW.GLFW_VISIBLE;
 import static org.lwjgl.glfw.GLFW.glfwCreateWindow;
 import static org.lwjgl.glfw.GLFW.glfwDefaultWindowHints;
 import static org.lwjgl.glfw.GLFW.glfwDestroyWindow;
+import static org.lwjgl.glfw.GLFW.glfwGetCursorPos;
 import static org.lwjgl.glfw.GLFW.glfwGetPrimaryMonitor;
 import static org.lwjgl.glfw.GLFW.glfwGetVideoMode;
 import static org.lwjgl.glfw.GLFW.glfwGetWindowSize;
@@ -17,20 +18,27 @@ import static org.lwjgl.glfw.GLFW.glfwInit;
 import static org.lwjgl.glfw.GLFW.glfwMakeContextCurrent;
 import static org.lwjgl.glfw.GLFW.glfwSetErrorCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
+import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowPos;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowShouldClose;
 import static org.lwjgl.glfw.GLFW.glfwShowWindow;
 import static org.lwjgl.glfw.GLFW.glfwSwapInterval;
 import static org.lwjgl.glfw.GLFW.glfwTerminate;
 import static org.lwjgl.glfw.GLFW.glfwWindowHint;
+import static org.lwjgl.glfw.GLFW.glfwWindowShouldClose;
 import static org.lwjgl.system.MemoryStack.stackPush;
 
+import java.nio.DoubleBuffer;
 import java.nio.IntBuffer;
+import javax.vecmath.Vector2d;
+import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
+import org.lwjgl.glfw.GLFWScrollCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
+import org.lwjglx.util.vector.Vector2f;
 
 public class DisplayManager {
 
@@ -44,6 +52,54 @@ public class DisplayManager {
 
   private static double lastFrameTime;
   private static double delta;
+
+  private GLFWScrollCallback scrollCallback;
+  private static Vector2d currentMouseWheel = new Vector2d(0, 0);
+  private static Vector2f dMouseWheel = new Vector2f(0, 0);
+
+  private static Vector2d deltaMousePos = new Vector2d(0, 0);
+  private static Vector2d prevMousePos = new Vector2d(0, 0);
+  private static Vector2d currMousePos = new Vector2d(0, 0);
+
+  public static Vector2d getDeltaMousePos() {
+    return deltaMousePos;
+  }
+
+  public static void setDeltaMousePos(Vector2d deltaMousePos) {
+    DisplayManager.deltaMousePos = deltaMousePos;
+  }
+
+  public static Vector2d getPrevMousePos() {
+    return prevMousePos;
+  }
+
+  public static void setPrevMousePos(Vector2d prevMousePos) {
+    DisplayManager.prevMousePos = prevMousePos;
+  }
+
+  public static Vector2d getCurrMousePos() {
+    return currMousePos;
+  }
+
+  public static void setCurrMousePos(Vector2d currMousePos) {
+    DisplayManager.currMousePos = currMousePos;
+  }
+
+  public static Vector2d getCurrentMouseWheel() {
+    return currentMouseWheel;
+  }
+
+  public static void setCurrentMouseWheel(Vector2d currentMouseWheel) {
+    DisplayManager.currentMouseWheel = currentMouseWheel;
+  }
+
+  public static Vector2f getdMouseWheel() {
+    return dMouseWheel;
+  }
+
+  public static void setdMouseWheel(Vector2f dMouseWheel) {
+    DisplayManager.dMouseWheel = dMouseWheel;
+  }
 
   public static void createDisplay() {
     // Setup an error callback. The default implementation
@@ -73,6 +129,13 @@ public class DisplayManager {
       }
     });
 
+    glfwSetScrollCallback(windowID, (long win, double dx, double dy) -> {
+      setCurrentMouseWheel(new Vector2d(dx, dy));
+      System.out.println("dx=" + dx + " dy=" + dy);
+    });
+
+    //glfwSetMouseButtonCallback(windowID, ())
+
     // Get the thread stack and push a new frame
     try (MemoryStack stack = stackPush()) {
       IntBuffer pWidth = stack.mallocInt(1); // int*
@@ -93,12 +156,44 @@ public class DisplayManager {
     glfwSwapInterval(1);// Enable v-sync 60fps - 1 // 0 = off, 1 = on
     glfwShowWindow(windowID);// Make the window visible
     lastFrameTime = getCurrentTime();
+    prevMousePos = getMousePos();
+  }
+
+  private static Vector2d getMousePos() {
+    DoubleBuffer posX = BufferUtils.createDoubleBuffer(1);
+    DoubleBuffer posY = BufferUtils.createDoubleBuffer(1);
+    glfwGetCursorPos(windowID, posX, posY);
+
+    return new Vector2d(posX.get(0), posY.get(0));
+    /*System.out.println("posX=" + posX.get(0));
+    System.out.println("posY=" + posY.get(0));*/
+  }
+
+  private static void updateMouseScroll() {
+    dMouseWheel.x = 0;
+    dMouseWheel.y = 0;
+
+    if (!glfwWindowShouldClose(windowID)) {
+      dMouseWheel.x = (float) currentMouseWheel.x;
+      dMouseWheel.y = (float) currentMouseWheel.y;
+    }
+
+    currentMouseWheel.x = 0;
+    currentMouseWheel.y = 0;
   }
 
   public static void updateDisplay() {
     double currentFrameTime = getCurrentTime();
     delta = (currentFrameTime - lastFrameTime) / 1000f;//seconds
     lastFrameTime = currentFrameTime;
+    updateMouseScroll();
+    //getMousePos();
+
+    currMousePos = getMousePos();
+    deltaMousePos = new Vector2d(currMousePos.x - prevMousePos.x, currMousePos.y - prevMousePos.y);
+    prevMousePos = currMousePos;
+    System.out.println("delta posX=" + deltaMousePos.x);
+    System.out.println("delta posY=" + deltaMousePos.y);
   }
 
   public static double getFrameTimeSeconds() {

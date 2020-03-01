@@ -81,7 +81,7 @@ public class MainGameLoop {
 
     Terrain terrain = new Terrain(0, -1, loader, texturePack, blendMap);
     Terrain terrain2 = new Terrain(-1, -1, loader, texturePack, blendMap);
-    Camera camera = new Camera();
+
     MasterRenderer renderer = new MasterRenderer();
 
     ModelData bunnyModelData = OBJFileLoader.loadOBJ("stanfordBunny");
@@ -92,7 +92,7 @@ public class MainGameLoop {
     TexturedModel stanfordBunny = new TexturedModel(bunnyModel,
         new ModelTexture(loader.loadTexture("white")));
     Player player = new Player(stanfordBunny, new Vector3f(100, 0, -50), 0, 0, 0, 1);
-
+    Camera camera = new Camera(player);
     // Run the rendering loop until the user has attempted to close the window or has pressed the ESCAPE key.
     while (!glfwWindowShouldClose(windowID)) {
       entity.increaseRotation(0, 1, 0);//rotate around x and y axes
