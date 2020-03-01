@@ -1,6 +1,7 @@
 package toolbox;
 
 import entities.Camera;
+import javax.vecmath.Vector3d;
 import org.lwjglx.util.vector.Matrix4f;
 import org.lwjglx.util.vector.Vector3f;
 
@@ -27,8 +28,9 @@ public class Maths {
     Matrix4f.rotate((float) Math.toRadians(camera.getYaw()), new Vector3f(0, 1, 0), viewMatrix,
         viewMatrix);
     //roll isnt used, can add later
-    Vector3f cameraPos = camera.getPosition();
-    Vector3f negativeCameraPos = new Vector3f(-cameraPos.x, -cameraPos.y, -cameraPos.z);
+    Vector3d cameraPos = camera.getPosition();
+    Vector3f negativeCameraPos = new Vector3f((float) -cameraPos.x, (float) -cameraPos.y,
+        (float) -cameraPos.z);
     Matrix4f.translate(negativeCameraPos, viewMatrix, viewMatrix);
     return viewMatrix;
   }
